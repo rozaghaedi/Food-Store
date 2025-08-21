@@ -1,317 +1,185 @@
-### Features
+# 🍕 Food Store Management System
 
-- Support Standard Markdown / CommonMark and GFM(GitHub Flavored Markdown);
-- Full-featured: Real-time Preview, Image (cross-domain) upload, Preformatted text/Code blocks/Tables insert, Code fold, Search replace, Read only, Themes, Multi-languages, L18n, HTML entities, Code syntax highlighting...;
-- Markdown Extras : Support ToC (Table of Contents), Emoji, Task lists, @Links...;
-- Compatible with all major browsers (IE8+), compatible Zepto.js and iPad;
-- Support identification, interpretation, fliter of the HTML tags;
-- Support TeX (LaTeX expressions, Based on KaTeX), Flowchart and Sequence Diagram of Markdown extended syntax;
-- Support AMD/CMD (Require.js & Sea.js) Module Loader, and Custom/define editor plugins;
+**A Java-based web application for managing food products with dual console and web interfaces**
 
-# Editor.md
+A comprehensive food inventory management system built with Java, featuring user authentication, product CRUD operations, shopping cart functionality, and expiry date tracking. The application provides both a command-line interface for administrative tasks and a modern web interface for end users.
 
-![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
+## 🌟 Features
 
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![](https://img.shields.io/bower/v/editor.md.svg)
+### 🔐 User Management
+- **User Registration** - Create new customer accounts with business details
+- **User Authentication** - Secure login system with SHA-256 password hashing
+- **Session Management** - Maintain user sessions across web requests
 
+### 📦 Product Management
+- **CRUD Operations** - Create, Read, Update, and Delete food products
+- **Category Filtering** - Browse products by categories
+- **Search Functionality** - Find products by description
+- **Expiry Date Tracking** - Filter products by expiration status (expired/non-expired)
+- **SKU Management** - Track products with stock keeping units
 
-**Table of Contents**
+### 🛒 Shopping Experience
+- **Shopping Cart** - Add multiple products to cart
+- **Price Calculation** - Automatic total price computation
+- **Product Browsing** - Intuitive web interface for product discovery
 
-[TOCM]
+### 💻 Dual Interface
+- **Web Interface** - Modern HTML-based UI with FreeMarker templates
+- **Console Interface** - Command-line interface for administrative tasks
 
-[TOC]
+## 🛠️ Built With
 
-#H1 header
-##H2 header
-###H3 header
-####H4 header
-#####H5 header
-######H6 header
-#Heading 1 link [Heading link](https://github.com/pandao/editor.md "Heading link")
-##Heading 2 link [Heading link](https://github.com/pandao/editor.md "Heading link")
-###Heading 3 link [Heading link](https://github.com/pandao/editor.md "Heading link")
-####Heading 4 link [Heading link](https://github.com/pandao/editor.md "Heading link") Heading link [Heading link](https://github.com/pandao/editor.md "Heading link")
-#####Heading 5 link [Heading link](https://github.com/pandao/editor.md "Heading link")
-######Heading 6 link [Heading link](https://github.com/pandao/editor.md "Heading link")
+- **Backend:**
+  - Java (JDK 8+)
+  - SQLite Database
+  - Java HTTP Server (com.sun.net.httpserver)
+  - JDBC for database connectivity
 
-##Headers (Underline)
+- **Frontend:**
+  - HTML5 & CSS3
+  - FreeMarker Template Engine
+  - Responsive Web Design
 
-H1 Header (Underline)
-=============
+- **Security:**
+  - SHA-256 Password Hashing
+  - Session-based Authentication
 
-H2 Header (Underline)
--------------
+## 🏗️ Architecture
 
-###Characters
-                
-----
-
-~~Strikethrough~~ <s>Strikethrough (when enable html tag decode.)</s>
-*Italic*      _Italic_
-**Emphasis**  __Emphasis__
-***Emphasis Italic*** ___Emphasis Italic___
-
-Superscript: X<sub>2</sub>，Subscript: O<sup>2</sup>
-
-**Abbreviation(link HTML abbr tag)**
-
-The <abbr title="Hyper Text Markup Language">HTML</abbr> specification is maintained by the <abbr title="World Wide Web Consortium">W3C</abbr>.
-
-###Blockquotes
-
-> Blockquotes
-
-Paragraphs and Line Breaks
-                    
-> "Blockquotes Blockquotes", [Link](http://localhost/)。
-
-###Links
-
-[Links](http://localhost/)
-
-[Links with title](http://localhost/ "link title")
-
-`<link>` : <https://github.com>
-
-[Reference link][id/name] 
-
-[id/name]: http://link-url/
-
-GFM a-tail link @pandao
-
-###Code Blocks (multi-language) & highlighting
-
-####Inline code
-
-`$ npm install marked`
-
-####Code Blocks (Indented style)
-
-Indented 4 spaces, like `<pre>` (Preformatted Text).
-
-    <?php
-        echo "Hello world!";
-    ?>
-    
-Code Blocks (Preformatted text):
-
-    | First Header  | Second Header |
-    | ------------- | ------------- |
-    | Content Cell  | Content Cell  |
-    | Content Cell  | Content Cell  |
-
-####Javascript　
-
-```javascript
-function test(){
-	console.log("Hello world!");
-}
- 
-(function(){
-    var box = function(){
-        return box.fn.init();
-    };
-
-    box.prototype = box.fn = {
-        init : function(){
-            console.log('box.init()');
-
-			return this;
-        },
-
-		add : function(str){
-			alert("add", str);
-
-			return this;
-		},
-
-		remove : function(str){
-			alert("remove", str);
-
-			return this;
-		}
-    };
-    
-    box.fn.init.prototype = box.fn;
-    
-    window.box =box;
-})();
-
-var testBox = box();
-testBox.add("jQuery").remove("jQuery");
+```
+src/main/java/org/example/
+├── Main.java               Application entry point
+├── MyHTTPHandler.java      HTTP request handler
+├── WebController.java      Template rendering controller
+├── FoodProduct.java        Product entity model
+├── Customer.java           Customer entity model
+├── Address.java            Address entity model
+├── FoodProductDAO.java     Product data access layer
+└── CustomersDAO.java       Customer data access layer
 ```
 
-####HTML code
+## 🚀 Getting Started
 
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <mate charest="utf-8" />
-        <title>Hello world!</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-    </body>
-</html>
-```
+### Prerequisites
 
-###Images
+- **Java Development Kit (JDK) 8 or higher**
+- **SQLite** (included with Java)
+- **IDE** (IntelliJ IDEA, Eclipse, or VS Code recommended)
 
-Image:
+### Installation
 
-![](https://pandao.github.io/editor.md/examples/images/4.jpg)
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rozaghaedi/Food-Store.git
+   cd Food-Store
+   ```
 
-> Follow your heart.
+2. **Set up the database**
+   The application uses SQLite with the database file `identifier.sqlite`. The application will create the necessary tables automatically on first run.
 
-![](https://pandao.github.io/editor.md/examples/images/8.jpg)
+3. **Compile the Java application**
+   ```bash
+   javac -cp . src/main/java/org/example/*.java
+   ```
 
-> 图为：厦门白城沙滩 Xiamen
+4. **Run the application**
+   ```bash
+   java -cp . org.example.Main
+   ```
 
-图片加链接 (Image + Link)：
+5. **Access the application**
+   - **Web Interface:** Open your browser and navigate to `http://localhost:4567`
+   - **Console Interface:** Use the command-line menu that appears in your terminal
 
-[![](https://pandao.github.io/editor.md/examples/images/7.jpg)](https://pandao.github.io/editor.md/examples/images/7.jpg "李健首张专辑《似水流年》封面")
+## 📚 Usage
 
-> 图为：李健首张专辑《似水流年》封面
-                
-----
+### Web Interface
 
-###Lists
+1. **Register a new account** at `/register` with your business details
+2. **Login** to access the product management system
+3. **Browse products** at `/products` with filtering and search options
+4. **Add products** using the "Add Product" feature (requires login)
+5. **Update/Delete products** through the product management interface
+6. **Use the shopping cart** to select and calculate total prices
 
-####Unordered list (-)
+### Console Interface
 
-- Item A
-- Item B
-- Item C
-     
-####Unordered list (*)
+The console provides a menu-driven interface for:
+- `[1]` List all products
+- `[2]` Search for product by ID
+- `[3]` Add a new product
+- `[4]` Update a product by ID
+- `[5]` Delete a product by ID
+- `[6]` Exit application
 
-* Item A
-* Item B
-* Item C
+### Database Schema
 
-####Unordered list (plus sign and nested)
-                
-+ Item A
-+ Item B
-    + Item B 1
-    + Item B 2
-    + Item B 3
-+ Item C
-    * Item C 1
-    * Item C 2
-    * Item C 3
+**Products Table (`food_products`):**
+- `id` - Primary key
+- `SKU` - Stock keeping unit
+- `description` - Product description
+- `category` - Product category
+- `expiry_date` - Expiration date (YYYY-MM-DD)
+- `price` - Product price
 
-####Ordered list
-                
-1. Item A
-2. Item B
-3. Item C
-                
-----
-                    
-###Tables
-                    
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell 
+**Customers Table (`customers`):**
+- `id` - Primary key
+- `businessName` - Customer business name
+- `telephoneNumber` - Contact number
+- `username` - Login username
+- `password` - Hashed password
+- `address` - Foreign key to address table
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+## 🔧 Configuration
 
-| Function name | Description                    |
-| ------------- | ------------------------------ |
-| `help()`      | Display the help window.       |
-| `destroy()`   | **Destroy your computer!**     |
+- **Server Port:** 4567 (configurable in `Main.java`)
+- **Database:** `identifier.sqlite` (configurable in handler classes)
+- **Templates:** Located in `/templates/` directory
 
-| Item      | Value |
-| --------- | -----:|
-| Computer  | $1600 |
-| Phone     |   $12 |
-| Pipe      |    $1 |
+## 🎯 API Endpoints
 
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-                
-----
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/` | Home page (redirects to login if not authenticated) |
+| GET | `/login` | Login page |
+| GET | `/register` | Registration page |
+| GET | `/products` | Product listing with filters |
+| GET | `/add-product` | Add product form |
+| GET | `/product/{id}/update` | Update product form |
+| GET | `/product/{id}/delete` | Delete product confirmation |
+| GET | `/cart` | Shopping cart page |
+| GET | `/logout` | Logout and redirect |
+| POST | `/login` | Process login |
+| POST | `/register` | Process registration |
+| POST | `/add-product` | Add new product |
+| POST | `/update-product` | Update existing product |
+| POST | `/delete-product` | Delete product |
+| POST | `/cart` | Process cart items |
 
-####HTML entities
+## 🤝 Contributing
 
-&copy; &  &uml; &trade; &iexcl; &pound;
-&amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; 
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
+### Development Guidelines:
+- Follow Java naming conventions
+- Add JavaDoc comments for public methods
+- Ensure proper exception handling
+- Test both console and web interfaces
 
-18&ordm;C  &quot;  &apos;
 
-##Escaping for Special Characters
+## 🚀 Future Enhancements
 
-\*literal asterisks\*
+- Payment gateway integration
+- Email notifications for expired products
+- Advanced reporting and analytics
+- REST API endpoints
+- Mobile application support
+- Inventory level tracking
+- Multi-user role management
 
-##Markdown extras
 
-###GFM task list
 
-- [x] GFM task list 1
-- [x] GFM task list 2
-- [ ] GFM task list 3
-    - [ ] GFM task list 3-1
-    - [ ] GFM task list 3-2
-    - [ ] GFM task list 3-3
-- [ ] GFM task list 4
-    - [ ] GFM task list 4-1
-    - [ ] GFM task list 4-2
-
-###Emoji mixed :smiley:
-
-> Blockquotes :star:
-
-####GFM task lists & Emoji & fontAwesome icon emoji & editormd logo emoji :editormd-logo-5x:
-
-- [x] :smiley: @mentions, :smiley: #refs, [links](), **formatting**, and <del>tags</del> supported :editormd-logo:;
-- [x] list syntax required (any unordered or ordered list supported) :editormd-logo-3x:;
-- [x] [ ] :smiley: this is a complete item :smiley:;
-- [ ] []this is an incomplete item [test link](#) :fa-star: @pandao; 
-- [ ] [ ]this is an incomplete item :fa-star: :fa-gear:;
-    - [ ] :smiley: this is an incomplete item [test link](#) :fa-star: :fa-gear:;
-    - [ ] :smiley: this is  :fa-star: :fa-gear: an incomplete item [test link](#);
-            
-###TeX(LaTeX)
-   
-$$E=mc^2$$
-
-Inline $$E=mc^2$$ Inline，Inline $$E=mc^2$$ Inline。
-
-$$\(\sqrt{3x-1}+(1+x)^2\)$$
-                    
-$$\sin(\alpha)^{\theta}=\sum_{i=0}^{n}(x^i + \cos(f))$$
-                
-###FlowChart
-
-```flow
-st=>start: Login
-op=>operation: Login operation
-cond=>condition: Successful Yes or No?
-e=>end: To admin
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-###Sequence Diagram
-                    
-```seq
-Andrew->China: Says Hello 
-Note right of China: China thinks\nabout it 
-China-->Andrew: How are you? 
-Andrew->>China: I am good thanks!
-```
-
-###End
